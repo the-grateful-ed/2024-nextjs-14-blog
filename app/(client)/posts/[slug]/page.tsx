@@ -48,8 +48,6 @@ const BlogPost = async ({ params }: Params) => {
 
   return (
     <div>
-      {/* Background image svg */}
-
       <div className='relative px-4 sm:px-6 lg:px-8 py-12'>
         <div className='mx-auto max-w-prose text-lg'>
           <h1>
