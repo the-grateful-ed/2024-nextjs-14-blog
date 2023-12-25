@@ -1,20 +1,19 @@
 import type { Metadata } from 'next';
-import { Kalam, Victor_Mono, Rubik } from 'next/font/google';
+import { Kalam, Rubik } from 'next/font/google';
 import React from 'react';
 
 import './globals.css';
 
+import Footer from '@/components/footer';
 import MainContainer from '@/components/main-container';
 import Navbar from '@/components/navbar';
 import { ThemeProvider } from '@/components/theme-provider';
-import Footer from '@/components/footer';
 
 const rubik = Rubik({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700', '800', '900'],
   variable: '--font-rubik',
 });
-
 
 const kalam = Kalam({
   subsets: ['latin'],
@@ -34,9 +33,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body
-        className={`${rubik.variable} ${kalam.variable}}`}
-      >
+      <body className={`${rubik.variable} ${kalam.variable}}`}>
         <ThemeProvider
           attribute='class'
           defaultTheme='system'

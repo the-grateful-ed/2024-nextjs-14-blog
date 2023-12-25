@@ -1,16 +1,14 @@
-import Header from '@/components/header';
-import { Post } from '@/utils/interface';
-import { client } from '@/sanity/lib/client';
-import { urlForImage } from '@/sanity/lib/image';
-import { PortableText } from '@portabletext/react';
-import { VT323 } from 'next/font/google';
-import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import React from 'react';
+
+import Header from '@/components/header';
 import { Badge } from '@/components/ui/badge';
 
-const dateFont = VT323({ weight: '400', subsets: ['latin'] });
+import { client } from '@/sanity/lib/client';
+import { Post } from '@/utils/interface';
+
+// const dateFont = VT323({ weight: '400', subsets: ['latin'] });
 
 interface Params {
   params: {
@@ -42,9 +40,7 @@ async function getPost(slug: string) {
 export const revalidate = 60;
 
 const BlogPost = async ({ params }: Params) => {
-  console.log(params, 'parmas');
   const post: Post = await getPost(params?.slug);
-  console.log(post, 'post');
 
   if (!post) {
     notFound();
@@ -64,9 +60,7 @@ const BlogPost = async ({ params }: Params) => {
             <div className='mt-1'>
               {post?.tags?.map((tag) => (
                 <Link key={tag?._id} href={`/tag/${tag.slug.current}`}>
-                  <Badge className='mr-2'>
-                    #{tag.name}
-                  </Badge>
+                  <Badge className='mr-2'>#{tag.name}</Badge>
                 </Link>
               ))}
             </div>
@@ -83,4 +77,4 @@ const BlogPost = async ({ params }: Params) => {
     </div>
   );
 };
-export default BlogPost
+export default BlogPost;
