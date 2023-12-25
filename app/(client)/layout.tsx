@@ -15,11 +15,6 @@ const rubik = Rubik({
   variable: '--font-rubik',
 });
 
-const victorMono = Victor_Mono({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-victor-mono',
-});
 
 const kalam = Kalam({
   subsets: ['latin'],
@@ -40,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${rubik.variable} ${kalam.variable} ${victorMono.variable} `}
+        className={`${rubik.variable} ${kalam.variable}}`}
       >
         <ThemeProvider
           attribute='class'
